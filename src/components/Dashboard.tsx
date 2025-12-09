@@ -3,9 +3,9 @@ import { Activity, Car, CheckCircle, Clock } from 'lucide-react';
 export default function Dashboard() {
     const stats = [
         { title: 'Total Scans', value: '1,234', icon: <Car size={24} />, color: 'var(--cyan)' },
-        { title: 'Success Rate', value: '98.5%', icon: <CheckCircle size={24} />, color: '#10b981' }, // emerald-500
-        { title: 'Avg Time', value: '0.8s', icon: <Clock size={24} />, color: '#f59e0b' }, // amber-500
-        { title: 'Active Hours', value: '24/7', icon: <Activity size={24} />, color: '#8b5cf6' }, // violet-500
+        { title: 'Success Rate', value: '98.5%', icon: <CheckCircle size={24} />, color: '#10b981' },
+        { title: 'Avg Time', value: '0.8s', icon: <Clock size={24} />, color: '#f59e0b' },
+        { title: 'Active Hours', value: '24/7', icon: <Activity size={24} />, color: '#8b5cf6' },
     ];
 
     const recentScans = [
@@ -34,7 +34,7 @@ export default function Dashboard() {
                 ))}
             </div>
 
-            {/* Recent Activity */}
+
             <div className="recent-activity">
                 <h3>Recent Scans</h3>
                 <div className="table-container">

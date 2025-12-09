@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="app">
-      {/* Header */}
+
       <header className="header">
         <div className="header-inner">
           <div className="logo">

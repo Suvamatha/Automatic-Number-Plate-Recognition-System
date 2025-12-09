@@ -50,7 +50,6 @@ export default function Scanner() {
                 </p>
             </div>
 
-            {/* Mode Switch */}
             <div className="mode-switch">
                 <button
                     className={mode === 'upload' ? 'mode-btn active' : 'mode-btn'}
@@ -96,14 +95,14 @@ export default function Scanner() {
                 )}
             </div>
 
-            {/* Preview */}
+
             {image && (
                 <div className="preview">
                     <img src={image} alt="Captured plate" className="preview-img" />
                 </div>
             )}
 
-            {/* Scan Button */}
+
             <div className="scan-action">
                 <button
                     onClick={scan}

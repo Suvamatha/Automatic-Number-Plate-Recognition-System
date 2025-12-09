@@ -12,16 +12,15 @@ import random
 
 app = FastAPI()
 
-# Allow CORS for frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"], # Vite default port
+    allow_origins=["http://localhost:5173"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Dependency
+
 def get_session():
     with Session(engine) as session:
         yield session
@@ -41,7 +40,7 @@ def health_check():
 
 @app.post("/api/scan", response_model=ScanRead)
 async def scan_plate(file: UploadFile = File(...), session: Session = Depends(get_session)):
-    # 1. Save file
+   
     file_extension = file.filename.split(".")[-1]
     file_name = f"{uuid.uuid4()}.{file_extension}"
     file_path = f"uploads/{file_name}"
@@ -49,13 +48,12 @@ async def scan_plate(file: UploadFile = File(...), session: Session = Depends(ge
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
-    # 2. Mock ANPR Processing (Replace with actual OCR later)
-    # Simulating a random plate for demo purposes
+
     mock_plates = ["BA 2 PA 5522", "BA 1 JA 9988", "GA 3 PA 1234"]
     detected_plate = random.choice(mock_plates)
     confidence = round(random.uniform(0.85, 0.99), 2)
     
-    # 3. Save to DB
+
     scan = Scan(
         image_path=file_path,
         plate_number=detected_plate,

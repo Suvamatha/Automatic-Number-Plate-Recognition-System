@@ -5,7 +5,7 @@ from datetime import datetime
 class ScanBase(SQLModel):
     plate_number: str
     confidence: float
-    status: str = "Success" # Success, Review, Failed
+    status: str = "Success" 
     timestamp: datetime = Field(default_factory=datetime.utcnow)
 
 class Scan(ScanBase, table=True):
